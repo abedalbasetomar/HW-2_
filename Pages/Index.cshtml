@@ -1,0 +1,66 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .form-buttons {
+            margin-top: 10px;
+        }
+
+            .form-buttons button,
+            .form-buttons input[type="submit"] {
+                padding: 10px 20px;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Welcome</h1>
+        <p>Please enter your details:</p>
+        <form name="ContactForm" id="ContactForm" method="post">
+            Name:
+            <br />
+            <input name="Name" type="text" class="form-control input-lg" autofocus required />
+            <br />
+            Phone:
+            <br />
+            <input name="Phone" type="tel" class="form-control input-lg" required />
+            <br />
+            Address:
+            <br />
+            <input name="Address" type="text" class="form-control input-lg" required />
+            <br />
+            <div class="form-buttons">
+                <input id="SaveButton" type="submit" value="Save" class="btn btn-info" />
+                <button type="button" class="btn btn-danger" onclick="deleteForm()">Delete</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function deleteForm() {
+            document.getElementsByName('Name')[0].value = '';
+            document.getElementsByName('Phone')[0].value = '';
+            document.getElementsByName('Address')[0].value = '';
+            console.log('Form deleted');
+        }
+    </script>
+
+</body>
+</html>
+
